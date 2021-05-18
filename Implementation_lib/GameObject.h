@@ -1,6 +1,5 @@
 #pragma once
 #include "GameElement.h"
-#include <string>
 class GameObject : public GameElement {
 private:
 	std::string elementName;
