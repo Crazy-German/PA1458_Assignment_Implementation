@@ -2,10 +2,12 @@
 #include "GameObject.h"
 
 GameObject::GameObject()
+	:elementName("")
 {
 }
 
 GameObject::GameObject(std::string elementName)
+	:elementName(elementName)
 {
 }
 
@@ -29,7 +31,7 @@ void GameObject::setCurrentInteractionOptions(std::string theOptions)
 
 std::string GameObject::getName()
 {
-	return elementName;
+	return this->elementName;
 }
 
 void GameObject::startCurrentInteraction()
