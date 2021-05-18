@@ -27,6 +27,11 @@ void GameObject::setCurrentInteractionOptions(std::string theOptions)
 {
 }
 
+std::string GameObject::getName()
+{
+	return elementName;
+}
+
 void GameObject::startCurrentInteraction()
 {
 }

@@ -10,9 +10,11 @@ private:
 	GameObjectRepo myGameObjects;
 	Scene currentScene;
 	Scene playerInventory;
+	GameObject testObj;
 public:
+	Game();
 	void gameRun();
-	void selectGameObject(std::string name);
+	GameObject selectGameObject(std::string name);
 	void selectInteraction(GameObject& theGameObj, std::string theInteraction);
 	void setInteractionOptions(std::string theOptions);
 	void startInteraction();

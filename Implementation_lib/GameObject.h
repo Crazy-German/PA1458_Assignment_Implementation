@@ -11,6 +11,7 @@ public:
 	void startInteraction(std::string interactionType);
 	std::string listCurrentInteractionOptions() const;
 	void setCurrentInteractionOptions(std::string theOptions);
+	std::string getName();
 	void startCurrentInteraction();
 	void abbortCurrentInteraction();
 };

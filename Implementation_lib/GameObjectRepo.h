@@ -5,7 +5,8 @@
 
 class GameObjectRepo {
 private:
-	GameObject** gameObjects;
+	//GameObject** gameObjects;
+	std::vector<GameObject> gameobjects;
 
 public:
 	GameObjectRepo();
