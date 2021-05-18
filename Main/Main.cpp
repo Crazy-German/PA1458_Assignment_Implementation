@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
+#include"../Implementation_lib/Game.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    Game sickGame;
+    sickGame.gameRun();
     
 }
 
