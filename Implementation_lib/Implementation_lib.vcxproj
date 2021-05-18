@@ -160,6 +160,7 @@
     <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectRepo.cpp" />
     <ClCompile Include="Implementation_lib.cpp" />
     <ClCompile Include="pch.cpp">
