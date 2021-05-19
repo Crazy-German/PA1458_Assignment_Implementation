@@ -9,6 +9,7 @@ GameObject::GameObject()
 	interactionOptions.push_back("Goodbye");
 	interactionOptions.push_back("Salute");
 	interactionOptions.push_back("Fight");
+	currentInteraction = interactionOptions[0];
 }
 
 GameObject::GameObject(std::string elementName)
@@ -19,6 +20,7 @@ GameObject::GameObject(std::string elementName)
 	interactionOptions.push_back("Goodbye");
 	interactionOptions.push_back("Salute");
 	interactionOptions.push_back("Fight");
+	currentInteraction = interactionOptions[0];
 
 }
 
@@ -27,20 +29,31 @@ std::string GameObject::listInteractionTypes() const
 	return interactionTypes;
 }
 
-void GameObject::startInteraction(std::string interactionType)
+bool GameObject::startInteraction(std::string interactionType)
 {
 	for (int i = 0; i < interactionOptions.size(); i++)
 	{
 		if (interactionType == interactionOptions[i])
 		{
-			//return??
+			startCurrentInteraction();
+			return true;
 		}
 	}
+	return false;
 }
 
 std::string GameObject::listCurrentInteractionOptions() const
 {
-	return std::string();
+	std::string tempString;
+	for (int i = 0; i < interactionOptions.size(); i++)
+	{
+		tempString += std::to_string(i +1);
+		tempString += ". ";
+		tempString += interactionOptions[i];
+		tempString += "\n";
+		
+	}
+	return tempString;
 }
 
 std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
@@ -50,7 +63,7 @@ std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
 		if (theOptions == interactionOptions[i])
 		{
 			currentInteraction = interactionOptions[i];
-			return "Was able to set current interaction to" + theOptions;
+			return "Was able to set current interaction to " + theOptions;
 		}
 	}
 	return "Couldnt set interaction option to " + theOptions;
@@ -69,4 +82,5 @@ std::string GameObject::startCurrentInteraction()
 
 void GameObject::abbortCurrentInteraction()
 {
+	isCurrentInteractionStarted = false;
 }

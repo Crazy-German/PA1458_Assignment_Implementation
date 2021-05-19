@@ -13,8 +13,9 @@ void Game::gameRun()
 
 	}*/
 	testObj = selectGameObject("A");
-	std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
-	std::cout << testObj.getName();
+	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
+	//std::cout << testObj.getName();
+	std::cout << selectGameObject("Bertil").setCurrentInteractionOptions("Fight");
 }
 
 GameObject Game::selectGameObject(std::string name)

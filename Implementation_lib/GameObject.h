@@ -12,7 +12,7 @@ public:
 	GameObject();
 	GameObject(std::string elementName);
 	std::string listInteractionTypes() const;
-	void startInteraction(std::string interactionType);
+	bool startInteraction(std::string interactionType);
 	std::string listCurrentInteractionOptions() const;
 	std::string setCurrentInteractionOptions(std::string theOptions);
 	std::string getName();
