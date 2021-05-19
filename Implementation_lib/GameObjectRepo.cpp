@@ -12,7 +12,7 @@ GameObjectRepo::GameObjectRepo()
 	gameobjects.push_back(GameObject("A"));
 }
 
-GameObject GameObjectRepo::getGameObject(std::string gameElement)
+GameObject GameObjectRepo::getGameObject(std::string gameElement)//getgame om det inte finns något att returna så krash very bad
 {
 
 	for (int i = 0; i < gameobjects.size(); i++)

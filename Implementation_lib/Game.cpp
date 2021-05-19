@@ -12,9 +12,9 @@ void Game::gameRun()
 	{
 
 	}*/
-	//testObj = selectGameObject("A");
+	testObj = selectGameObject("A");
 	std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
-	//std::cout << testObj.getName();
+	std::cout << testObj.getName();
 }
 
 GameObject Game::selectGameObject(std::string name)
