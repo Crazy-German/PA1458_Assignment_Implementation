@@ -13,6 +13,7 @@ private:
 	GameObject testObj;
 public:
 	Game();
+	~Game();
 	void gameRun();
 	GameObject selectGameObject(std::string name);
 	void selectInteraction(GameObject& theGameObj, std::string theInteraction);

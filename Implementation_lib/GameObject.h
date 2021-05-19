@@ -5,12 +5,15 @@ class GameObject : public GameElement {
 private:
 	std::string elementName;
 	std::string interactionTypes;
-	std::vector<std::string> interactionOptions;
+	//std::vector<std::string> interactionOptions;
+	std::string** interactionOptions;
+	int interactionOptionsSize;
 	std::string currentInteraction;
 	bool isCurrentInteractionStarted;
 public:
 	GameObject();
 	GameObject(std::string elementName);
+	~GameObject();
 	std::string listInteractionTypes() const;
 	bool startInteraction(std::string interactionType);
 	std::string listCurrentInteractionOptions() const;

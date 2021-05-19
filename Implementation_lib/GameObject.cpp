@@ -5,23 +5,31 @@ GameObject::GameObject()
 	:elementName("")
 {
 	isCurrentInteractionStarted = false;
-	interactionOptions.push_back("Greet");
+	/*interactionOptions.push_back("Greet");
 	interactionOptions.push_back("Goodbye");
 	interactionOptions.push_back("Salute");
 	interactionOptions.push_back("Fight");
 	currentInteraction = interactionOptions[0];
+	*/
 }
 
 GameObject::GameObject(std::string elementName)
 	:elementName(elementName)
 {
 	isCurrentInteractionStarted = false;
-	interactionOptions.push_back("Greet");
-	interactionOptions.push_back("Goodbye");
-	interactionOptions.push_back("Salute");
-	interactionOptions.push_back("Fight");
-	currentInteraction = interactionOptions[0];
+	interactionOptionsSize = 4;
+	std::string temp = "Greet";
+	interactionOptions = new std::string * [4]{ nullptr };
+	interactionOptions[0] = new std::string("Greet");
+	interactionOptions[1] = new std::string("Goodbye");
+	interactionOptions[2] = new std::string("Salute");
+	interactionOptions[3] = new std::string("Fight");
 
+}
+
+GameObject::~GameObject()
+{
+	//GLÖM INTE DELETE INTERACTION************
 }
 
 std::string GameObject::listInteractionTypes() const
@@ -31,9 +39,9 @@ std::string GameObject::listInteractionTypes() const
 
 bool GameObject::startInteraction(std::string interactionType)
 {
-	for (int i = 0; i < interactionOptions.size(); i++)
+	for (int i = 0; i < interactionOptionsSize; i++)
 	{
-		if (interactionType == interactionOptions[i])
+		if (interactionType == *interactionOptions[i])
 		{
 			startCurrentInteraction();
 			return true;
@@ -45,11 +53,11 @@ bool GameObject::startInteraction(std::string interactionType)
 std::string GameObject::listCurrentInteractionOptions() const
 {
 	std::string tempString;
-	for (int i = 0; i < interactionOptions.size(); i++)
+	for (int i = 0; i < interactionOptionsSize; i++)
 	{
 		tempString += std::to_string(i +1);
 		tempString += ". ";
-		tempString += interactionOptions[i];
+		tempString += *interactionOptions[i];
 		tempString += "\n";
 		
 	}
@@ -58,11 +66,11 @@ std::string GameObject::listCurrentInteractionOptions() const
 
 std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
 {
-	for (int i = 0; i < interactionOptions.size(); i++)
+	for (int i = 0; i < interactionOptionsSize; i++)
 	{
-		if (theOptions == interactionOptions[i])
+		if (theOptions == *interactionOptions[i])
 		{
-			currentInteraction = interactionOptions[i];
+			currentInteraction = *interactionOptions[i];
 			return "Was able to set current interaction to " + theOptions;
 		}
 	}

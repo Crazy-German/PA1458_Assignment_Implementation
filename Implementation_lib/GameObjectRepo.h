@@ -5,10 +5,11 @@
 
 class GameObjectRepo {
 private:
-	//GameObject** gameObjects;
-	std::vector<GameObject> gameobjects;
+	GameObject** gameObjects;
+	//std::vector<GameObject> gameobjects;
 
 public:
 	GameObjectRepo();
+	GameObject** getObjects();
 	GameObject getGameObject(std::string gameElement);
 };

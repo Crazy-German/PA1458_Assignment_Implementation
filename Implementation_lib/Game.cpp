@@ -4,6 +4,11 @@
 
 Game::Game()
 {
+	currentScene.getObjects(myGameObjects.getObjects());
+}
+
+Game::~Game()
+{
 }
 
 void Game::gameRun()
@@ -12,10 +17,10 @@ void Game::gameRun()
 	{
 
 	}*/
-	testObj = selectGameObject("A");
+	//testObj = selectGameObject("A");
 	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
 	//std::cout << testObj.getName();
-	std::cout << selectGameObject("Bertil").setCurrentInteractionOptions("Fight");
+	std::cout << currentScene.listAvalibleElements();
 }
 
 GameObject Game::selectGameObject(std::string name)

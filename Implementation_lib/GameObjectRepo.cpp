@@ -3,23 +3,30 @@
 
 GameObjectRepo::GameObjectRepo()
 {
-	//this->gameObjects = new GameObject * [2] {nullptr};
-	//this->gameObjects[0] = new GameObject();
-	//this->gameObjects[1] = new GameObject();
-	gameobjects.push_back(GameObject("Stig"));
+	this->gameObjects = new GameObject * [2] {nullptr};
+	this->gameObjects[0] = new GameObject("Stig");
+	this->gameObjects[1] = new GameObject("Bertil");
+	/*gameobjects.push_back(GameObject("Stig"));
 	gameobjects.push_back(GameObject("Bertil"));
 	gameobjects.push_back(GameObject("Mons"));
-	gameobjects.push_back(GameObject("A"));
+	gameobjects.push_back(GameObject("A"));*/
 }
+
+GameObject** GameObjectRepo::getObjects()
+{
+	return gameObjects;
+}
+
+
 
 GameObject GameObjectRepo::getGameObject(std::string gameElement)//getgame om det inte finns något att returna så krash very bad
 {
 
-	for (int i = 0; i < gameobjects.size(); i++)
+	for (int i = 0; i < 2; i++)
 	{
-		if (gameobjects[i].getName() == gameElement)
+		if (gameObjects[i]->getName() == gameElement)
 		{
-			return gameobjects[i];
+			return *gameObjects[i];
 		}
 	}
 	
