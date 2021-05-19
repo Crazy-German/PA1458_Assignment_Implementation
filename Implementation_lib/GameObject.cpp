@@ -4,6 +4,7 @@
 GameObject::GameObject()
 	:elementName("")
 {
+	
 	isCurrentInteractionStarted = false;
 	/*interactionOptions.push_back("Greet");
 	interactionOptions.push_back("Goodbye");
