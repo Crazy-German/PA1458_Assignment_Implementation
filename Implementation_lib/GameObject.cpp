@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject()
-	:elementName("")
+	:GameElement("")
 {
 	
 	isCurrentInteractionStarted = false;
@@ -15,7 +15,7 @@ GameObject::GameObject()
 }
 
 GameObject::GameObject(std::string elementName)
-	:elementName(elementName)
+	:GameElement(elementName)
 {
 	isCurrentInteractionStarted = false;
 	interactionOptionsSize = 4;
@@ -26,6 +26,8 @@ GameObject::GameObject(std::string elementName)
 	interactionOptions[2] = new std::string("Salute");
 	interactionOptions[3] = new std::string("Fight");
 
+	testingInteraction = new interactionType * [2]{ nullptr };
+	testingInteraction[0] = new Taste();
 }
 
 GameObject::~GameObject()
@@ -44,6 +46,7 @@ bool GameObject::startInteraction(std::string interactionType)
 	{
 		if (interactionType == *interactionOptions[i])
 		{
+			
 			startCurrentInteraction();
 			return true;
 		}
@@ -81,12 +84,13 @@ std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
 
 std::string GameObject::getName()
 {
-	return this->elementName;
+	return this->getElementName();
 }
 
 std::string GameObject::startCurrentInteraction()
 {
-	return currentInteraction;
+	//return currentInteraction;
+	return testingInteraction[0]->startInteraction();
 }
 
 void GameObject::abbortCurrentInteraction()

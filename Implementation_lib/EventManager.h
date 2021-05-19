@@ -12,5 +12,5 @@ public://byta ut eventcondition variabeln senare
 	void listAffectedEvents(int EventCondition);
 	void triggerEvents(int EventCondition);
 	void clearEvent(int EventCondition);
-	void clearEvent(int Event);
+	//void clearEvent(int Event);
 };
