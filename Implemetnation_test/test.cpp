@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "../Implementation_lib/GameObject.h"
 #include "../Implementation_lib/GameObject.cpp"
-#include "../Implementation_lib/Game.h"
-#include "../Implementation_lib/Game.cpp"
 
 
 namespace my {
@@ -18,7 +16,8 @@ namespace my {
 				UnitTest()
 				{
 					// You can do set-up work for each test here.
-					interactionOptions = new std::string * [4]{ nullptr };
+					interactionOptions = new std::string *[4]{ nullptr };
+
 				}
 
 				~UnitTest() override {
@@ -47,8 +46,7 @@ namespace my {
 				
 				// Class members declared here can be used by all tests in the test suite
 				std::string** interactionOptions;
-				GameObject test = GameObject("Test");
-				Game gameTest;
+				GameObject test;;
 			};
 
 			// Tests something
@@ -65,11 +63,6 @@ namespace my {
 
 				}
 				EXPECT_STRCASEEQ(tempString.c_str(), test.listCurrentInteractionOptions().c_str());
-			}
-			TEST_F(UnitTest, RunGame) {
-				testing::internal::CaptureStdout();
-				gameTest.gameRun();
-				std::string expected;
 			}
 
 			
