@@ -106,6 +106,9 @@ namespace my {
 				}
 
 			}
+			TEST_F(UnitTest, isOnTest) {
+				EXPECT_FALSE(test->checkisOn());
+			}
 
 			
 
