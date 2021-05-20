@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject()
-	:GameElement(""), inScene("")
+	:elementName("")
 {
 	isCurrentInteractionStarted = false;
 	/*interactionOptions.push_back("Greet");
@@ -14,7 +14,7 @@ GameObject::GameObject()
 }
 
 GameObject::GameObject(std::string elementName)
-	:GameElement(elementName), inScene("")
+	:elementName(elementName)
 {
 	isCurrentInteractionStarted = false;
 	interactionOptionsSize = 4;
@@ -25,11 +25,6 @@ GameObject::GameObject(std::string elementName)
 	interactionOptions[2] = new std::string("Salute");
 	interactionOptions[3] = new std::string("Fight");
 
-}
-
-GameObject::GameObject(std::string elementName, std::string location)
-	:GameElement(elementName), inScene(location)
-{
 }
 
 GameObject::~GameObject()
@@ -83,6 +78,11 @@ std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
 	//interactionOptions.push_back(theOptions);
 }
 
+std::string GameObject::getName()
+{
+	return this->elementName;
+}
+
 std::string GameObject::startCurrentInteraction()
 {
 	return currentInteraction;
@@ -91,14 +91,4 @@ std::string GameObject::startCurrentInteraction()
 void GameObject::abbortCurrentInteraction()
 {
 	isCurrentInteractionStarted = false;
-}
-
-void GameObject::setLocation(std::string location)
-{
-	this->inScene = location;
-}
-
-std::string GameObject::getLocation() const
-{
-	return this->inScene;
 }

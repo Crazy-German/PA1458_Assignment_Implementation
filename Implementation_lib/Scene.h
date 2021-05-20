@@ -4,14 +4,13 @@
 
 class Scene : public GameElement{
 private: 
+	//std::string name;
 	GameObject** gameObjects;
-	std::string description;
 public:
-	Scene(std::string sceneName, std::string description);
-	void addObject(GameObject &gameObject);
+	Scene();
+	Scene(std::string sceneName);
 	void getObjects(GameObject** other);
 	std::string listAvalibleElements() const;
 	bool isAvalible(std::string gameElement);
 	bool isGameObject(std::string gameElement);
-	std::string describeScene() const;
 };
