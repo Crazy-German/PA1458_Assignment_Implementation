@@ -72,7 +72,7 @@ std::string GameObject::setCurrentInteractionOptions(std::string theOptions)//FI
 		if (theOptions == testingInteraction[i]->getInteractionName())
 		{
 			currentInteraction = testingInteraction[i];
-			std::cout << currentInteraction->getInteractionName();
+			
 			return "Was able to set current interaction to " + theOptions;
 		}
 	}

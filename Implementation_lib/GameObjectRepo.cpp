@@ -19,14 +19,14 @@ GameObject** GameObjectRepo::getObjects()
 
 
 
-GameObject GameObjectRepo::getGameObject(std::string gameElement)//getgame om det inte finns något att returna så krash very bad
+GameObject* GameObjectRepo::getGameObject(std::string gameElement)//getgame om det inte finns något att returna så krash very bad
 {
 
 	for (int i = 0; i < 2; i++)
 	{
 		if (gameObjects[i]->getElementName() == gameElement)
 		{
-			return *gameObjects[i];
+			return gameObjects[i];
 		}
 	}
 	

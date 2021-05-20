@@ -11,5 +11,5 @@ private:
 public:
 	GameObjectRepo();
 	GameObject** getObjects();
-	GameObject getGameObject(std::string gameElement);
+	GameObject *getGameObject(std::string gameElement);
 };
