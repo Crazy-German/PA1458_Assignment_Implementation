@@ -62,10 +62,10 @@ void Game::gameRun()
 	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
 	//std::cout << testObj.getName();
 	//std::cout << currentScene.listAvalibleElements();
-	std::cout << selectGameObject("Rock")->setCurrentInteractionOptions("TurnOff");
+	//std::cout << selectGameObject("Rock")->setCurrentInteractionOptions("TurnOff");
 	//std::cout << myGameObjects.getGameObject("Rock").setCurrentInteractionOptions("TurnOn") << std::endl;
 	 //std::cout << myGameObjects.getGameObject("Rock").startInteraction("TurnOn");
-	std::cout << myGameObjects.getGameObject("Rock")->startCurrentInteraction();
+	//std::cout << myGameObjects.getGameObject("Rock")->startCurrentInteraction();
 }
 
 GameObject* Game::selectGameObject(std::string name)
