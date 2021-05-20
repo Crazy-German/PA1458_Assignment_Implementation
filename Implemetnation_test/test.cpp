@@ -96,8 +96,14 @@ namespace my {
 				//return "Couldnt set interaction option to " + theOptions;
 			}
 
-			TEST_F(UnitTest, listCurrent)
+			TEST_F(UnitTest, wrongInteraction)
 			{
+				std::string temp = "wrong type";
+
+				for (int i = 0; i < 4; i++)
+				{
+					EXPECT_FALSE(temp == testingInteraction[i]->getInteractionName());
+				}
 
 			}
 
