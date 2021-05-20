@@ -7,6 +7,8 @@
 #include "Turnon.h"
 #include<vector>
 
+#include<iostream>
+
 class GameObject : public GameElement {
 private:
 
@@ -23,9 +25,9 @@ private:
 public:
 	GameObject();
 	GameObject(std::string elementName);
-	~GameObject();
+
 	std::string listInteractionTypes() const;
-	bool startInteraction(std::string interactionType);
+	std::string startInteraction(std::string interactionType);
 	std::string listCurrentInteractionOptions() const;
 	std::string setCurrentInteractionOptions(std::string theOptions);
 	std::string startCurrentInteraction();

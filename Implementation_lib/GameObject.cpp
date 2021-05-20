@@ -30,28 +30,25 @@ GameObject::GameObject(std::string elementName)
 	currentInteraction = testingInteraction[0];
 }
 
-GameObject::~GameObject()
-{
-	//GLÖM INTE DELETE INTERACTION************
-}
+
 
 std::string GameObject::listInteractionTypes() const
 {
 	return interactionTypes;
 }
 
-bool GameObject::startInteraction(std::string interactionType)
+std::string GameObject::startInteraction(std::string interactionType)
 {
 	for (int i = 0; i < INTERACTIONOPTIONSIZE; i++)
 	{
 		if (interactionType == testingInteraction[i]->getInteractionName())
 		{
 			
-			startCurrentInteraction();
-			return true;
+			currentInteraction = testingInteraction[i];
+			return startCurrentInteraction();
 		}
 	}
-	return false;
+	return "no matching interactionType\n";
 }
 
 std::string GameObject::listCurrentInteractionOptions() const
@@ -75,6 +72,7 @@ std::string GameObject::setCurrentInteractionOptions(std::string theOptions)//FI
 		if (theOptions == testingInteraction[i]->getInteractionName())
 		{
 			currentInteraction = testingInteraction[i];
+			std::cout << currentInteraction->getInteractionName();
 			return "Was able to set current interaction to " + theOptions;
 		}
 	}
@@ -96,6 +94,7 @@ std::string GameObject::startCurrentInteraction()
 
 		this->isOn = false;
 	}
+	
 	return currentInteraction->startInteraction() + " " + this->getElementName();;
 }
 
