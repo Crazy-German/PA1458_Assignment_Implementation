@@ -16,6 +16,8 @@ namespace my {
 				UnitTest()
 				{
 					// You can do set-up work for each test here.
+					interactionOptions = new std::string *[4]{ nullptr };
+
 				}
 
 				~UnitTest() override {
@@ -29,7 +31,6 @@ namespace my {
 				void SetUp() override {
 					// Code here will be called immediately after the constructor (right
 					// before each test).
-					interactionOptions = new std::string * [4]{ nullptr };
 					interactionOptions[0] = new std::string("Greet");
 					interactionOptions[1] = new std::string("Goodbye");
 					interactionOptions[2] = new std::string("Salute");
