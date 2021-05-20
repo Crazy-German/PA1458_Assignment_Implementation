@@ -160,6 +160,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Taste.h" />
+    <ClInclude Include="Touch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EventManager.cpp" />
@@ -177,6 +178,7 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Taste.cpp" />
+    <ClCompile Include="Touch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

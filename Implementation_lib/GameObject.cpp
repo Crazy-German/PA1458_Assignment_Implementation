@@ -18,7 +18,7 @@ GameObject::GameObject(std::string elementName)
 	:GameElement(elementName)
 {
 	isCurrentInteractionStarted = false;
-	interactionOptionsSize = 4;
+	interactionOptionsSize = 2;
 	interactionOptions = new std::string * [4]{ nullptr };
 	interactionOptions[0] = new std::string("Greet");
 	interactionOptions[1] = new std::string("Goodbye");
@@ -27,6 +27,7 @@ GameObject::GameObject(std::string elementName)
 
 	testingInteraction = new interactionType * [2]{ nullptr };
 	testingInteraction[0] = new Taste();
+	testingInteraction[1] = new Touch();
 
 	currentInteraction = testingInteraction[0];
 }

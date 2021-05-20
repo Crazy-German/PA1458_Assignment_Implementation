@@ -2,6 +2,7 @@
 #include "GameElement.h"
 #include "InteractionType.h"
 #include "Taste.h"
+#include "Touch.h"
 #include<vector>
 
 class GameObject : public GameElement {

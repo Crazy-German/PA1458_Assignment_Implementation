@@ -17,6 +17,8 @@ namespace my {
 				{
 					// You can do set-up work for each test here.
 					interactionOptions = new std::string *[4]{ nullptr };
+					testingInteraction = new interactionType * [2]{ nullptr };
+					currentInteraction = nullptr;
 
 				}
 
@@ -36,6 +38,10 @@ namespace my {
 					interactionOptions[2] = new std::string("Salute");
 					interactionOptions[3] = new std::string("Fight");
 
+					testingInteraction[0] = new Taste();
+					testingInteraction[1] = new Touch();
+					currentInteraction = testingInteraction[1];
+
 				}
 
 				void TearDown() override {
@@ -46,23 +52,31 @@ namespace my {
 				
 				// Class members declared here can be used by all tests in the test suite
 				std::string** interactionOptions;
-				GameObject test;;
+				interactionType** testingInteraction;
+				interactionType* currentInteraction;
+				GameObject *test = new GameObject("Bert");
 			};
 
 			// Tests something
 			TEST_F(UnitTest, gameObjTest)
 			{
 				std::string tempString;
-				for (int i = 0; i < 4; i++)
+				for (int i = 0; i < 2; i++)
 				{
 					
 					tempString += std::to_string(i + 1);
 					tempString += ". ";
-					tempString += *interactionOptions[i];
+					tempString += testingInteraction[i]->startInteraction();
 					tempString += "\n";
 
 				}
-				EXPECT_STRCASEEQ(tempString.c_str(), test.listCurrentInteractionOptions().c_str());
+				EXPECT_STRCASEEQ(tempString.c_str(), test->listCurrentInteractionOptions().c_str());
+			}
+
+			//Testar currentInteraction om den returnar samma som testIninteraction
+			TEST_F(UnitTest, startinteractionTest)
+			{
+				EXPECT_STRCASEEQ(currentInteraction->startInteraction().c_str(), testingInteraction[1]->startInteraction().c_str());
 			}
 
 			

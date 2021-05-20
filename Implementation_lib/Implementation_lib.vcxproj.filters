@@ -45,6 +45,9 @@
     <ClInclude Include="Taste.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Touch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Implementation_lib.cpp">
@@ -75,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Taste.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Touch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
