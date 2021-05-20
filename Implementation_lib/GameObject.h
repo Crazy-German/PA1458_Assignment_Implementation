@@ -31,5 +31,6 @@ public:
 	std::string listCurrentInteractionOptions() const;
 	std::string setCurrentInteractionOptions(std::string theOptions);
 	std::string startCurrentInteraction();
+	bool checkisOn();
 	void abbortCurrentInteraction();
 };
