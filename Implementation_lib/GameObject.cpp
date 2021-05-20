@@ -2,20 +2,24 @@
 #include "GameObject.h"
 
 GameObject::GameObject()
-	:GameElement("")
+	:GameElement("Bert")
 {
 	
+	INTERACTIONOPTIONSIZE = 4;
+	isOn = false;
 	isCurrentInteractionStarted = false;
-	/*interactionOptions.push_back("Greet");
-	interactionOptions.push_back("Goodbye");
-	interactionOptions.push_back("Salute");
-	interactionOptions.push_back("Fight");
-	currentInteraction = interactionOptions[0];
-	*/
+
+	testingInteraction = new interactionType * [INTERACTIONOPTIONSIZE] { nullptr };
+	testingInteraction[0] = new Taste();
+	testingInteraction[1] = new Touch();
+	testingInteraction[2] = new TurnOn();
+	testingInteraction[3] = new TurnOff();
+
+	currentInteraction = testingInteraction[0];
 }
 
-GameObject::GameObject(std::string elementName)
-	:GameElement(elementName)
+GameObject::GameObject(std::string elementName, std::string scene)
+	:GameElement(elementName),currentScene(scene)
 {
 	INTERACTIONOPTIONSIZE = 4;
 	isOn = false;

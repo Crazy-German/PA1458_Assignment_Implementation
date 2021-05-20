@@ -51,7 +51,7 @@ namespace my {
 
 				interactionType** testingInteraction;
 				interactionType* currentInteraction;
-				GameObject *test = new GameObject("Bert");
+				GameObject *test = new GameObject();
 			};
 
 			// Testar om man kan skriva ut en lista med interactions

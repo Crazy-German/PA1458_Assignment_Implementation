@@ -9,7 +9,7 @@ Game::Game()
 	currentScene.initializeCurrentScene(myGameObjects.getObjects(1));
 	playerInventory.initializePlayerInventory(myGameObjects.getObjects(2));
 	playerInventory.initializePlayerInventory(myGameObjects.getObjects(3));
-
+	current = " ";
 
 	playerResponse = " ";
 }
@@ -28,15 +28,17 @@ void Game::gameRun()
 		if (playerResponse == "2")
 		{
 			secretary.listAllObjectsInScene(currentScene);
+			current = "CurrentScene";
 		}
-		else
+		else if(playerResponse == "1")
 		{
 			secretary.listAllObjectsInScene(playerInventory);
+			current = "PlayerInventory";
 		}
 		std::cin >> playerResponse;
 		std::cin.ignore();
 
-		if (playerResponse == "Rock" || playerResponse == "Ball")
+		if (playerResponse == "Rock" || playerResponse == "Ball" && current == "CurrentScene")
 		{
 			std::cout << "interact stuff\n";
 			std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
@@ -44,7 +46,7 @@ void Game::gameRun()
 			std::cin.ignore();
 			std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
 		}
-		if (playerResponse == "Stick" || playerResponse == "Penny")
+		if (playerResponse == "Stick" || playerResponse == "Penny" && current == "PlayerInventory")
 		{
 			std::cout << "interact stuff\n";
 			std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();

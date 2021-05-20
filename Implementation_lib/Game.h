@@ -11,6 +11,7 @@ private:
 	GameObjectRepo myGameObjects;
 	Scene currentScene;
 	Scene playerInventory;
+	std::string current;
 	GameObject testObj;
 	Secretary secretary;
 	std::string playerResponse;

@@ -19,13 +19,12 @@ private:
 	std::string currentScene;
 
 	std::string interactionTypes;
-	std::string** interactionOptions;
 	int INTERACTIONOPTIONSIZE;
 
 	bool isCurrentInteractionStarted;
 public:
 	GameObject();
-	GameObject(std::string elementName);
+	GameObject(std::string elementName,std::string scene);
 
 	std::string listInteractionTypes() const;
 	std::string startInteraction(std::string interactionType);
