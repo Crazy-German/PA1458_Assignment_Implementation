@@ -4,8 +4,8 @@
 GameObjectRepo::GameObjectRepo()
 {
 	this->gameObjects = new GameObject * [2] {nullptr};
-	this->gameObjects[0] = new GameObject("Stig");
-	this->gameObjects[1] = new GameObject("Bertil");
+	this->gameObjects[0] = new GameObject("Ball");
+	this->gameObjects[1] = new GameObject("Rock");
 	/*gameobjects.push_back(GameObject("Stig"));
 	gameobjects.push_back(GameObject("Bertil"));
 	gameobjects.push_back(GameObject("Mons"));
@@ -24,7 +24,7 @@ GameObject GameObjectRepo::getGameObject(std::string gameElement)//getgame om de
 
 	for (int i = 0; i < 2; i++)
 	{
-		if (gameObjects[i]->getName() == gameElement)
+		if (gameObjects[i]->getElementName() == gameElement)
 		{
 			return *gameObjects[i];
 		}

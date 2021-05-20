@@ -24,7 +24,7 @@ std::string Scene::listAvalibleElements() const
 	{
 		tempString += std::to_string(i + 1);
 		tempString += ". ";
-		tempString += gameObjects[i]->getName();
+		tempString += gameObjects[i]->getElementName();
 		tempString += "\n";
 
 	}

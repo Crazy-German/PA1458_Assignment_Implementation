@@ -2,6 +2,7 @@
 #include "InteractionType.h"
 
 interactionType::interactionType()
+	:interactionTypeName(" ")
 {
 }
 

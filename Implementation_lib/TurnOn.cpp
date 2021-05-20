@@ -13,5 +13,6 @@ TurnOn::TurnOn(std::string name)
 
 std::string TurnOn::startInteraction()
 {
+	
 	return "You try to " + this->getInteractionName();
 }

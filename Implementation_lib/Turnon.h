@@ -1,5 +1,6 @@
 #pragma once
 #include"InteractionType.h"
+#include"GameObject.h"
 class TurnOn : public interactionType
 {
 private:

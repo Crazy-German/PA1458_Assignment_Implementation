@@ -21,7 +21,8 @@ void Game::gameRun()
 	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
 	//std::cout << testObj.getName();
 	//std::cout << currentScene.listAvalibleElements();
-	std::cout << myGameObjects.getGameObject("Bertil").startCurrentInteraction();
+	 myGameObjects.getGameObject("Rock").setCurrentInteractionOptions("TurnOn");
+	 std::cout << myGameObjects.getGameObject("Rock").startInteraction("TurnOn");
 }
 
 GameObject Game::selectGameObject(std::string name)
