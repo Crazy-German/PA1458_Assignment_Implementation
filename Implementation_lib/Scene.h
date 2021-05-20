@@ -6,6 +6,7 @@ class Scene : public GameElement{
 private: 
 	//std::string name;
 	GameObject** gameObjects;
+	//inT NUMMER AV OBJECT I GAMEOBJECTS
 public:
 	Scene();
 	Scene(std::string sceneName);
