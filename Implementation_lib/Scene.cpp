@@ -1,14 +1,17 @@
 #include "pch.h"
 #include "Scene.h"
 
-Scene::Scene()
-{
-}
-
-Scene::Scene(std::string sceneName)
+Scene::Scene(std::string sceneName, std::string description)
+	:GameElement(sceneName), description(description)
 {
 	//this->name = sceneName;
 	gameObjects = new GameObject * [2]{ nullptr };
+}
+
+void Scene::addObject(GameObject &gameObject)
+{
+	*gameObjects[0] = gameObject;
+	gameObject.setLocation(this->getName());
 }
 
 void Scene::getObjects(GameObject** other)
@@ -39,4 +42,9 @@ bool Scene::isAvalible(std::string gameElement)
 bool Scene::isGameObject(std::string gameElement)
 {
 	return false;
+}
+
+std::string Scene::describeScene() const
+{
+	return this->description;
 }

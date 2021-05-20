@@ -4,8 +4,8 @@
 GameObjectRepo::GameObjectRepo()
 {
 	this->gameObjects = new GameObject * [2] {nullptr};
-	this->gameObjects[0] = new GameObject("Stig");
-	this->gameObjects[1] = new GameObject("Bertil");
+	this->gameObjects[0] = new GameObject("Car", "CurrentScene");
+	this->gameObjects[1] = new GameObject("Gun", "Inventory");
 	/*gameobjects.push_back(GameObject("Stig"));
 	gameobjects.push_back(GameObject("Bertil"));
 	gameobjects.push_back(GameObject("Mons"));
@@ -29,5 +29,6 @@ GameObject GameObjectRepo::getGameObject(std::string gameElement)//getgame om de
 			return *gameObjects[i];
 		}
 	}
+	
 	
 }

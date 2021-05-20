@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameElement.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectRepo.cpp" />
     <ClCompile Include="Implementation_lib.cpp" />

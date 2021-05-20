@@ -3,6 +3,7 @@
 #include<iostream>
 
 Game::Game()
+	:currentScene("StartingScene", "An old allyway"), playerInventory("Inventory", "Your old backpack")
 {
 	currentScene.getObjects(myGameObjects.getObjects());
 }
@@ -13,13 +14,7 @@ Game::~Game()
 
 void Game::gameRun()
 {
-	/*while (1)//game loop
-	{
-
-	}*/
-	//testObj = selectGameObject("A");
-	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
-	//std::cout << testObj.getName();
+	std::cout << currentScene.describeScene() << std::endl;
 	std::cout << currentScene.listAvalibleElements();
 }
 
