@@ -1,9 +1,14 @@
 #pragma once
 #include "GameElement.h"
+#include "InteractionType.h"
+#include "Taste.h"
 #include<vector>
+
 class GameObject : public GameElement {
 private:
-	std::string elementName;
+
+	interactionType** testingInteraction;
+
 	std::string interactionTypes;
 	//std::vector<std::string> interactionOptions;
 	std::string** interactionOptions;

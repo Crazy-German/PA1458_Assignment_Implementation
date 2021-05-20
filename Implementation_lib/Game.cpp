@@ -20,7 +20,8 @@ void Game::gameRun()
 	//testObj = selectGameObject("A");
 	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;
 	//std::cout << testObj.getName();
-	std::cout << currentScene.listAvalibleElements();
+	//std::cout << currentScene.listAvalibleElements();
+	std::cout << myGameObjects.getGameObject("Bertil").startCurrentInteraction();
 }
 
 GameObject Game::selectGameObject(std::string name)
