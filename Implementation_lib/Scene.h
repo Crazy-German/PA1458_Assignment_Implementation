@@ -11,6 +11,7 @@ public:
 	Scene();
 	Scene(std::string sceneName);
 	void getObjects(GameObject** other);
+	void addObject(GameObject* object);
 	std::string listAvalibleElements() const;
 	bool isAvalible(std::string gameElement);
 	bool isGameObject(std::string gameElement);

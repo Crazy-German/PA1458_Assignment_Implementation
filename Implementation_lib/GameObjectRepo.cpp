@@ -24,7 +24,7 @@ GameObject** GameObjectRepo::getObjects()
 GameObject* GameObjectRepo::getGameObject(std::string gameElement)//getgame om det inte finns något att returna så krash very bad
 {
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (gameObjects[i]->getElementName() == gameElement)
 		{
