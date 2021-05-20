@@ -4,7 +4,13 @@
 
 Game::Game()
 {
-	currentScene.getObjects(myGameObjects.getObjects());
+
+	currentScene.initializeCurrentScene(myGameObjects.getObjects(0));
+	currentScene.initializeCurrentScene(myGameObjects.getObjects(1));
+	playerInventory.initializePlayerInventory(myGameObjects.getObjects(2));
+	playerInventory.initializePlayerInventory(myGameObjects.getObjects(3));
+
+
 	playerResponse = " ";
 }
 

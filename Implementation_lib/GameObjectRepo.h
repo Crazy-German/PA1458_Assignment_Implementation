@@ -10,6 +10,6 @@ private:
 
 public:
 	GameObjectRepo();
-	GameObject** getObjects();
+	GameObject* getObjects(int nr);
 	GameObject *getGameObject(std::string gameElement);
 };

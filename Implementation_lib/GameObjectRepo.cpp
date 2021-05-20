@@ -14,9 +14,9 @@ GameObjectRepo::GameObjectRepo()
 	gameobjects.push_back(GameObject("A"));*/
 }
 
-GameObject** GameObjectRepo::getObjects()
+GameObject* GameObjectRepo::getObjects(int nr)
 {
-	return gameObjects;
+	return gameObjects[nr];
 }
 
 

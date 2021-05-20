@@ -8,12 +8,22 @@ Scene::Scene()
 Scene::Scene(std::string sceneName)
 {
 	//this->name = sceneName;
-	gameObjects = new GameObject * [2]{ nullptr };
+	//gameObjects = new GameObject * [2]{ nullptr };
+	nrOfElements = 0;
 }
 
-void Scene::getObjects(GameObject** other)
+void Scene::initializePlayerInventory(GameObject* other)
 {
-	gameObjects = other;
+	//gameObjects[0] = other[0];
+	//gameObjects[1] = other[1];
+	gameobjects.push_back(other);
+}
+
+void Scene::initializeCurrentScene(GameObject* other)
+{
+	gameobjects.push_back(other);
+	//gameObjects[0] = other[2];
+	//gameObjects[1] = other[3];
 }
 
 
@@ -24,7 +34,7 @@ std::string Scene::listAvalibleElements() const
 	{
 		tempString += std::to_string(i + 1);
 		tempString += ". ";
-		tempString += gameObjects[i]->getElementName();
+		tempString += gameobjects[i]->getElementName();
 		tempString += "\n";
 
 	}
