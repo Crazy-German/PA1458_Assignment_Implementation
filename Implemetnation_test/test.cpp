@@ -8,23 +8,19 @@ namespace my {
 		namespace {
 
 			// The fixture for testing class Foo.
-			class GameObject : public ::testing::Test {
+			class UnitTest : public ::testing::Test {
 			protected:
 				// You can remove any or all of the following functions if their bodies would
 				// be empty.
 
-				GameObject()
+				UnitTest()
 				{
 					// You can do set-up work for each test here.
-					interactionOptions = new std::string * [4]{ nullptr };
-					interactionOptions[0] = new std::string("Greet");
-					interactionOptions[1] = new std::string("Goodbye");
-					interactionOptions[2] = new std::string("Salute");
-					interactionOptions[3] = new std::string("Fight");
 				}
 
-				~GameObject() override {
+				~UnitTest() override {
 					// You can do clean-up work that doesn't throw exceptions here.
+					
 				}
 
 				// If the constructor and destructor are not enough for setting up
@@ -33,6 +29,7 @@ namespace my {
 				void SetUp() override {
 					// Code here will be called immediately after the constructor (right
 					// before each test).
+					interactionOptions = new std::string * [4]{ nullptr };
 					interactionOptions[0] = new std::string("Greet");
 					interactionOptions[1] = new std::string("Goodbye");
 					interactionOptions[2] = new std::string("Salute");
@@ -48,10 +45,11 @@ namespace my {
 				
 				// Class members declared here can be used by all tests in the test suite
 				std::string** interactionOptions;
+				GameObject test;;
 			};
 
 			// Tests something
-			TEST_F(GameObject, gameObjTest)
+			TEST_F(UnitTest, gameObjTest)
 			{
 				std::string tempString;
 				for (int i = 0; i < 4; i++)
@@ -63,7 +61,7 @@ namespace my {
 					tempString += "\n";
 
 				}
-				EXPECT_STRCASEEQ(tempString.c_str(), "1. Greet\n2. GoodBye\n3. Salute\n4. Fight\n");
+				EXPECT_STRCASEEQ(tempString.c_str(), test.listCurrentInteractionOptions().c_str());
 			}
 
 			
