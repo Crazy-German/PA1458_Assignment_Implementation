@@ -19,7 +19,6 @@ GameObject::GameObject(std::string elementName)
 {
 	isCurrentInteractionStarted = false;
 	interactionOptionsSize = 4;
-	std::string temp = "Greet";
 	interactionOptions = new std::string * [4]{ nullptr };
 	interactionOptions[0] = new std::string("Greet");
 	interactionOptions[1] = new std::string("Goodbye");
@@ -28,6 +27,8 @@ GameObject::GameObject(std::string elementName)
 
 	testingInteraction = new interactionType * [2]{ nullptr };
 	testingInteraction[0] = new Taste();
+
+	currentInteraction = testingInteraction[0];
 }
 
 GameObject::~GameObject()
@@ -61,20 +62,20 @@ std::string GameObject::listCurrentInteractionOptions() const
 	{
 		tempString += std::to_string(i +1);
 		tempString += ". ";
-		tempString += *interactionOptions[i];
+		tempString += testingInteraction[i]->startInteraction();
 		tempString += "\n";
 		
 	}
 	return tempString;
 }
 
-std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
+std::string GameObject::setCurrentInteractionOptions(std::string theOptions)//FIXA FLER OPTIOONS SÅ INTE KRASCHAR
 {
 	for (int i = 0; i < interactionOptionsSize; i++)
 	{
 		if (theOptions == *interactionOptions[i])
 		{
-			currentInteraction = *interactionOptions[i];
+			currentInteraction = testingInteraction[i];
 			return "Was able to set current interaction to " + theOptions;
 		}
 	}
@@ -90,7 +91,7 @@ std::string GameObject::getName()
 std::string GameObject::startCurrentInteraction()
 {
 	//return currentInteraction;
-	return testingInteraction[0]->startInteraction();
+	return currentInteraction->startInteraction();
 }
 
 void GameObject::abbortCurrentInteraction()

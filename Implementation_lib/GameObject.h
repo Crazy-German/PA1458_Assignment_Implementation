@@ -8,12 +8,13 @@ class GameObject : public GameElement {
 private:
 
 	interactionType** testingInteraction;
+	interactionType* currentInteraction;
 
 	std::string interactionTypes;
 	//std::vector<std::string> interactionOptions;
 	std::string** interactionOptions;
 	int interactionOptionsSize;
-	std::string currentInteraction;
+	//std::string currentInteraction;
 	bool isCurrentInteractionStarted;
 public:
 	GameObject();
