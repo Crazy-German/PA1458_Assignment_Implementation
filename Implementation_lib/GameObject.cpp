@@ -58,7 +58,7 @@ std::string GameObject::listCurrentInteractionOptions() const
 	{
 		tempString += std::to_string(i +1);
 		tempString += ". ";
-		tempString += testingInteraction[i]->startInteraction();
+		tempString += testingInteraction[i]->getInteractionName();
 		tempString += "\n";
 		
 	}

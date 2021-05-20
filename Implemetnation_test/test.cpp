@@ -16,8 +16,7 @@ namespace my {
 				UnitTest()
 				{
 					// You can do set-up work for each test here.
-					interactionOptions = new std::string *[4]{ nullptr };
-					testingInteraction = new interactionType * [2]{ nullptr };
+					testingInteraction = new interactionType * [4]{ nullptr };
 					currentInteraction = nullptr;
 
 				}
@@ -33,14 +32,12 @@ namespace my {
 				void SetUp() override {
 					// Code here will be called immediately after the constructor (right
 					// before each test).
-					interactionOptions[0] = new std::string("Greet");
-					interactionOptions[1] = new std::string("Goodbye");
-					interactionOptions[2] = new std::string("Salute");
-					interactionOptions[3] = new std::string("Fight");
 
 					testingInteraction[0] = new Taste();
 					testingInteraction[1] = new Touch();
-					currentInteraction = testingInteraction[1];
+					testingInteraction[2] = new TurnOn();
+					testingInteraction[3] = new TurnOff();
+					currentInteraction = testingInteraction[0];
 
 				}
 
@@ -51,22 +48,22 @@ namespace my {
 
 				
 				// Class members declared here can be used by all tests in the test suite
-				std::string** interactionOptions;
+
 				interactionType** testingInteraction;
 				interactionType* currentInteraction;
 				GameObject *test = new GameObject("Bert");
 			};
 
-			// Tests something
+			// Testar om man kan skriva ut en lista med interactions
 			TEST_F(UnitTest, gameObjTest)
 			{
 				std::string tempString;
-				for (int i = 0; i < 2; i++)
+				for (int i = 0; i < 4; i++)
 				{
 					
 					tempString += std::to_string(i + 1);
 					tempString += ". ";
-					tempString += testingInteraction[i]->startInteraction();
+					tempString += testingInteraction[i]->getInteractionName();
 					tempString += "\n";
 
 				}
@@ -76,7 +73,32 @@ namespace my {
 			//Testar currentInteraction om den returnar samma som testIninteraction
 			TEST_F(UnitTest, startinteractionTest)
 			{
+				currentInteraction = testingInteraction[1];
 				EXPECT_STRCASEEQ(currentInteraction->startInteraction().c_str(), testingInteraction[1]->startInteraction().c_str());
+			}
+
+			//Testar om man jämförelsen för setCurrentInteraction stämmer
+			TEST_F(UnitTest, setcurrentInteraction)
+			{
+				std::string theOptions = "Touch";
+				for (int i = 0; i < 4; i++)
+				{
+					if (theOptions == testingInteraction[i]->getInteractionName())
+					{
+						EXPECT_TRUE(theOptions == testingInteraction[i]->getInteractionName());
+						//return "Was able to set current interaction to " + theOptions;
+					}
+					else
+					{
+						EXPECT_FALSE(theOptions == testingInteraction[i]->getInteractionName());
+					}
+				}
+				//return "Couldnt set interaction option to " + theOptions;
+			}
+
+			TEST_F(UnitTest, listCurrent)
+			{
+
 			}
 
 			
