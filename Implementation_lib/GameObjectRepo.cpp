@@ -3,9 +3,11 @@
 
 GameObjectRepo::GameObjectRepo()
 {
-	this->gameObjects = new GameObject * [2] {nullptr};
+	this->gameObjects = new GameObject * [4] {nullptr};
 	this->gameObjects[0] = new GameObject("Ball");
 	this->gameObjects[1] = new GameObject("Rock");
+	this->gameObjects[2] = new GameObject("Stick");
+	this->gameObjects[3] = new GameObject("Penny");
 	/*gameobjects.push_back(GameObject("Stig"));
 	gameobjects.push_back(GameObject("Bertil"));
 	gameobjects.push_back(GameObject("Mons"));
