@@ -4,7 +4,7 @@
 Scene::Scene()
 	:GameElement("")
 {
-	gameObjects = new GameObject * [2]{ nullptr };
+
 }
 
 Scene::Scene(std::string sceneName)
@@ -29,15 +29,7 @@ void Scene::initializeCurrentScene(GameObject* other)
 	//gameObjects[1] = other[3];
 }
 
-void Scene::addObject(GameObject* object)
-{
-	for (int i = 0; i < 2; i++) {
-		if (gameObjects[i] == nullptr) {
-			this->gameObjects[i] = object;
-			break;
-		}
-	}
-}
+
 
 
 std::string Scene::listAvalibleElements() const

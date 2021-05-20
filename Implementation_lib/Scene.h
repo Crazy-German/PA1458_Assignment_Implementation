@@ -5,7 +5,7 @@
 
 class Scene : public GameElement{
 private: 
-	//GameObject** gameObjects;
+
 	std::vector<GameObject*> gameobjects;
 	int nrOfElements;
 public:
