@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "../Implementation_lib/GameObject.h"
 #include "../Implementation_lib/GameObject.cpp"
+#include "../Implementation_lib/Game.h"
+#include "../Implementation_lib/Game.cpp"
 
 
 namespace my {
@@ -16,6 +18,7 @@ namespace my {
 				UnitTest()
 				{
 					// You can do set-up work for each test here.
+					interactionOptions = new std::string * [4]{ nullptr };
 				}
 
 				~UnitTest() override {
@@ -29,7 +32,6 @@ namespace my {
 				void SetUp() override {
 					// Code here will be called immediately after the constructor (right
 					// before each test).
-					interactionOptions = new std::string * [4]{ nullptr };
 					interactionOptions[0] = new std::string("Greet");
 					interactionOptions[1] = new std::string("Goodbye");
 					interactionOptions[2] = new std::string("Salute");
@@ -45,7 +47,8 @@ namespace my {
 				
 				// Class members declared here can be used by all tests in the test suite
 				std::string** interactionOptions;
-				GameObject test;;
+				GameObject test = GameObject("Test");
+				Game gameTest;
 			};
 
 			// Tests something
@@ -62,6 +65,11 @@ namespace my {
 
 				}
 				EXPECT_STRCASEEQ(tempString.c_str(), test.listCurrentInteractionOptions().c_str());
+			}
+			TEST_F(UnitTest, RunGame) {
+				testing::internal::CaptureStdout();
+				gameTest.gameRun();
+				std::string expected;
 			}
 
 			
