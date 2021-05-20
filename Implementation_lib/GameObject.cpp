@@ -110,3 +110,9 @@ bool GameObject::checkisOn()
 	return isOn;
 }
 
+std::string GameObject::getCurrentScene()
+{
+	return currentScene;
+}
+
+

@@ -16,6 +16,7 @@ private:
 	interactionType* currentInteraction;
 
 	bool isOn;
+	std::string currentScene;
 
 	std::string interactionTypes;
 	std::string** interactionOptions;
@@ -32,5 +33,6 @@ public:
 	std::string setCurrentInteractionOptions(std::string theOptions);
 	std::string startCurrentInteraction();
 	bool checkisOn();
+	std::string getCurrentScene();
 	void abbortCurrentInteraction();
 };
