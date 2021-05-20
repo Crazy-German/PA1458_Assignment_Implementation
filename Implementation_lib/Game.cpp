@@ -25,7 +25,7 @@ void Game::gameRun()
 	{
 		secretary.choseScene();
 		std::cin >> playerResponse;
-		if (playerResponse == "1" || playerResponse == "2")
+		if (playerResponse == "2")
 		{
 			secretary.listAllObjectsInScene(currentScene);
 		}
@@ -39,9 +39,21 @@ void Game::gameRun()
 		if (playerResponse == "Rock" || playerResponse == "Ball")
 		{
 			std::cout << "interact stuff\n";
+			std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
 			std::cin >> playerResponse2;
 			std::cin.ignore();
 			std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
+		}
+		if (playerResponse == "Stick" || playerResponse == "Penny")
+		{
+			std::cout << "interact stuff\n";
+			std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
+			std::cin >> playerResponse2;
+			std::cin.ignore();
+			std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
+		}
+		if (playerResponse == "Exit" || playerResponse2 == "Exit") {
+			break;
 		}
 	}
 	//testObj = selectGameObject("A");

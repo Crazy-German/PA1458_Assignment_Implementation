@@ -2,10 +2,13 @@
 #include "Scene.h"
 
 Scene::Scene()
+	:GameElement("")
 {
+	gameObjects = new GameObject * [2]{ nullptr };
 }
 
 Scene::Scene(std::string sceneName)
+	:GameElement(sceneName)
 {
 	//this->name = sceneName;
 	//gameObjects = new GameObject * [2]{ nullptr };
@@ -24,6 +27,16 @@ void Scene::initializeCurrentScene(GameObject* other)
 	gameobjects.push_back(other);
 	//gameObjects[0] = other[2];
 	//gameObjects[1] = other[3];
+}
+
+void Scene::addObject(GameObject* object)
+{
+	for (int i = 0; i < 2; i++) {
+		if (gameObjects[i] == nullptr) {
+			this->gameObjects[i] = object;
+			break;
+		}
+	}
 }
 
 
