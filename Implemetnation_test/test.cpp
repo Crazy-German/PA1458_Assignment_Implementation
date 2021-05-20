@@ -67,6 +67,7 @@ namespace my {
 					tempString += "\n";
 
 				}
+				
 				EXPECT_STRCASEEQ(tempString.c_str(), test->listCurrentInteractionOptions().c_str());
 			}
 
@@ -80,7 +81,10 @@ namespace my {
 			//Testar om man jämförelsen för setCurrentInteraction stämmer
 			TEST_F(UnitTest, setcurrentInteraction)
 			{
+			
 				std::string theOptions = "Touch";
+				std::string expectedResult = "Was able to set current interaction to Touch";
+				/*
 				for (int i = 0; i < 4; i++)
 				{
 					if (theOptions == testingInteraction[i]->getInteractionName())
@@ -93,7 +97,17 @@ namespace my {
 						EXPECT_FALSE(theOptions == testingInteraction[i]->getInteractionName());
 					}
 				}
+				*/
+				EXPECT_STRCASEEQ(test->setCurrentInteractionOptions(theOptions).c_str(), expectedResult.c_str());
 				//return "Couldnt set interaction option to " + theOptions;
+			}
+
+			TEST_F(UnitTest, setCurrentInteractionWrongOption)
+			{
+				std::string theOptions = "wrong option";
+				std::string expectedResult = "Was able to set current interaction to wrong option";
+				
+				EXPECT_STRCASENE(test->setCurrentInteractionOptions(theOptions).c_str(), expectedResult.c_str());
 			}
 
 			TEST_F(UnitTest, wrongInteraction)

@@ -107,11 +107,6 @@ void GameObject::abbortCurrentInteraction()
 
 bool GameObject::checkisOn()
 {
-	if (isOn)
-	{
-		return true;
-	}
-
-	return false;
+	return isOn;
 }
 
