@@ -159,6 +159,7 @@
     <ClInclude Include="InteractionType.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Secretary.h" />
     <ClInclude Include="Taste.h" />
     <ClInclude Include="Touch.h" />
     <ClInclude Include="Turnoff.h" />
@@ -179,6 +180,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Secretary.cpp" />
     <ClCompile Include="Taste.cpp" />
     <ClCompile Include="Touch.cpp" />
     <ClCompile Include="TurnOff.cpp" />

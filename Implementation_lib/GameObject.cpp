@@ -94,6 +94,7 @@ std::string GameObject::startCurrentInteraction()
 
 		this->isOn = false;
 	}
+	isCurrentInteractionStarted = true;
 	
 	return currentInteraction->startInteraction() + " " + this->getElementName();;
 }

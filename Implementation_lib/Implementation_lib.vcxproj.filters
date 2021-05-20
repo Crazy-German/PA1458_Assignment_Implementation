@@ -54,6 +54,9 @@
     <ClInclude Include="Turnon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Secretary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Implementation_lib.cpp">
@@ -93,6 +96,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TurnOn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Secretary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

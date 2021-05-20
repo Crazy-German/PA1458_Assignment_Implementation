@@ -2,6 +2,7 @@
 #include"GameObject.h"
 #include"Scene.h"
 #include"GameObjectRepo.h"
+#include"Secretary.h"
 #include<string>
 #include<iostream>
 class Game {
@@ -11,6 +12,9 @@ private:
 	Scene currentScene;
 	Scene playerInventory;
 	GameObject testObj;
+	Secretary secretary;
+	std::string playerResponse;
+	std::string playerResponse2;
 public:
 	Game();
 	~Game();

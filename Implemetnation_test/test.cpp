@@ -78,6 +78,14 @@ namespace my {
 				EXPECT_STRCASEEQ(currentInteraction->startInteraction().c_str(), testingInteraction[1]->startInteraction().c_str());
 			}
 
+			TEST_F(UnitTest, startCurrentInteractionWrong)
+			{
+				std::string temp = "You try to Eat";
+
+				EXPECT_STRCASENE(temp.c_str(), test->startCurrentInteraction().c_str());
+
+			}
+
 			//Testar om man jämförelsen för setCurrentInteraction stämmer
 			TEST_F(UnitTest, setcurrentInteraction)
 			{
@@ -120,6 +128,7 @@ namespace my {
 				}
 
 			}
+
 			TEST_F(UnitTest, isOnTest) {
 				EXPECT_FALSE(test->checkisOn());
 			}
