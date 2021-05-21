@@ -33,3 +33,29 @@ GameObject* GameObjectRepo::getGameObject(std::string gameElement)//getgame om d
 	}
 	
 }
+
+bool GameObjectRepo::isInteracting()
+{
+	bool temp = false;
+	for (int i = 0; i < 4; i++)
+	{
+		if (gameObjects[i]->isInteracting())
+		{
+			temp = true;
+		}
+	}
+	return temp;
+}
+
+std::string GameObjectRepo::getInteractingWithObject()
+{
+	std::string tempname;
+	for (int i = 0; i < 4; i++)
+	{
+		if (gameObjects[i]->isInteracting())
+		{
+			tempname = gameObjects[i]->getElementName();
+		}
+	}
+	return tempname;
+}

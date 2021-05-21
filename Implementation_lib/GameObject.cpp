@@ -69,7 +69,7 @@ std::string GameObject::listCurrentInteractionOptions() const
 	return tempString;
 }
 
-std::string GameObject::setCurrentInteractionOptions(std::string theOptions)//FIXA FLER OPTIOONS SÅ INTE KRASCHAR
+std::string GameObject::setCurrentInteractionOptions(std::string theOptions)
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -103,7 +103,15 @@ std::string GameObject::startCurrentInteraction()
 	return currentInteraction->startInteraction() + " " + this->getElementName();;
 }
 
+std::string GameObject::isCurrentInteraction()
+{
+	return currentInteraction->getInteractionName();
+}
 
+bool GameObject::isInteracting()
+{
+	return isCurrentInteractionStarted;
+}
 
 void GameObject::abbortCurrentInteraction()
 {

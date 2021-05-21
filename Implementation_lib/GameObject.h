@@ -31,6 +31,8 @@ public:
 	std::string listCurrentInteractionOptions() const;
 	std::string setCurrentInteractionOptions(std::string theOptions);
 	std::string startCurrentInteraction();
+	std::string isCurrentInteraction();
+	bool isInteracting();
 	bool checkisOn();
 	std::string getCurrentScene();
 	void abbortCurrentInteraction();

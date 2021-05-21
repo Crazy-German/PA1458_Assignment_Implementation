@@ -21,6 +21,11 @@ void Secretary::choseObject(std::string other)
 	std::cout << "you have chosen " << other << std::endl;
 }
 
+void Secretary::dummyAnswer()
+{
+	std::cout << "What a stupid thing to say\n";
+}
+
 void Secretary::listOptionsForObject(GameObject& other)
 {
 	std::cout << other.listCurrentInteractionOptions();

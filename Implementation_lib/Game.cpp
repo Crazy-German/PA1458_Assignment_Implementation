@@ -23,40 +23,75 @@ void Game::gameRun()
 	
 	while (1)//game loop
 	{
-		secretary.choseScene();
-		std::cin >> playerResponse;
-		if (playerResponse == "2")
-		{
-			secretary.listAllObjectsInScene(currentScene);
-			current = "CurrentScene";
-		}
-		else if(playerResponse == "1")
-		{
-			secretary.listAllObjectsInScene(playerInventory);
-			current = "PlayerInventory";
-		}
-		std::cin >> playerResponse;
-		std::cin.ignore();
+		std::string whichObject = " ";
+		bool interactingtemp = false;
 
-		if (playerResponse == "Rock" || playerResponse == "Ball" && current == "CurrentScene")
+		if (myGameObjects.isInteracting())
 		{
-			std::cout << "interact stuff\n";
-			std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
-			std::cin >> playerResponse2;
+			interactingtemp = true;
+			whichObject = myGameObjects.getInteractingWithObject();
+			std::cout << "You are currently " << myGameObjects.getGameObject(whichObject)->isCurrentInteraction()
+				<< " " << myGameObjects.getGameObject(whichObject)->getElementName() << " do you wish to abort that\nYes or No\n";
+
+			std::cin >> playerResponse;
 			std::cin.ignore();
-			std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
+
+			if (playerResponse == "Yes")
+			{
+				myGameObjects.getGameObject(whichObject)->abbortCurrentInteraction();
+				interactingtemp = false;
+			}
+			else if (playerResponse == "No")
+			{
+				interactingtemp = true;
+			}
+
 		}
-		if (playerResponse == "Stick" || playerResponse == "Penny" && current == "PlayerInventory")
+		if (!interactingtemp)
 		{
-			std::cout << "interact stuff\n";
-			std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
-			std::cin >> playerResponse2;
+
+
+			secretary.choseScene();
+			std::cin >> playerResponse;
+			if (playerResponse == "2")
+			{
+				secretary.listAllObjectsInScene(currentScene);
+				current = "CurrentScene";
+			}
+			else if (playerResponse == "1")
+			{
+				secretary.listAllObjectsInScene(playerInventory);
+				current = "PlayerInventory";
+			}
+			else
+			{
+				secretary.dummyAnswer();
+			}
+
+			std::cin >> playerResponse;
 			std::cin.ignore();
-			std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
+
+			if (playerResponse == "Rock" || playerResponse == "Ball" && current == "CurrentScene")
+			{
+				std::cout << "interact stuff\n";
+				std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
+				std::cin >> playerResponse2;
+				std::cin.ignore();
+				std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
+			}
+			if (playerResponse == "Stick" || playerResponse == "Penny" && current == "PlayerInventory")
+			{
+				std::cout << "interact stuff\n";
+				std::cout << myGameObjects.getGameObject(playerResponse)->listCurrentInteractionOptions();
+				std::cin >> playerResponse2;
+				std::cin.ignore();
+				std::cout << myGameObjects.getGameObject(playerResponse)->startInteraction(playerResponse2);
+			}
+			if (playerResponse == "Exit" || playerResponse2 == "Exit") {
+				break;
+			}
 		}
-		if (playerResponse == "Exit" || playerResponse2 == "Exit") {
-			break;
-		}
+
 	}
 	//testObj = selectGameObject("A");
 	//std::cout << "wowsers\n" << selectGameObject("A").getName() << std::endl;

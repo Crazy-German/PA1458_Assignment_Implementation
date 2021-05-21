@@ -12,4 +12,6 @@ public:
 	GameObjectRepo();
 	GameObject* getObjects(int nr);
 	GameObject *getGameObject(std::string gameElement);
+	bool isInteracting();
+	std::string getInteractingWithObject();
 };

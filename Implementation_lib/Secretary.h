@@ -14,6 +14,7 @@ public:
 	void listAllObjectsInScene(Scene &other);
 	void choosenInteractWithObject(std::string other);
 	void choseObject(std::string other);
+	void dummyAnswer();
 	void listOptionsForObject(GameObject& other);
 	void choseScene();
 
