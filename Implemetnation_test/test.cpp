@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "../Implementation_lib/GameObject.h"
 #include "../Implementation_lib/GameObject.cpp"
+#include "../Implementation_lib/Game.h"
+#include "../Implementation_lib/Game.cpp"
+#include <conio.h>
 
 
 namespace my {
@@ -52,6 +55,7 @@ namespace my {
 				interactionType** testingInteraction;
 				interactionType* currentInteraction;
 				GameObject *test = new GameObject();
+				Game testGame;
 			};
 
 			// Testar om man kan skriva ut en lista med interactions
@@ -133,6 +137,18 @@ namespace my {
 				EXPECT_FALSE(test->checkisOn());
 			}
 
+			TEST_F(UnitTest, fake) {
+				test->setCurrentInteractionOptions("Touch");
+				test->startInteraction("Touch");
+				ASSERT_TRUE(test->isInteracting());
+			}
+
+			TEST_F(UnitTest, fake2) {
+				test->setCurrentInteractionOptions("Touch");
+				test->startInteraction("Touch");
+				test->abbortCurrentInteraction();
+				ASSERT_FALSE(test->isInteracting());
+			}
 			
 
 		}  // namespace
@@ -141,5 +157,6 @@ namespace my {
 
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
+	std::cout << "test\n";
 	return RUN_ALL_TESTS();
 }

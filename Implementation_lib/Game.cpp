@@ -45,6 +45,9 @@ void Game::gameRun()
 			{
 				interactingtemp = true;
 			}
+			else if(playerResponse == "Exit" || playerResponse2 == "Exit") {
+				break;
+			}
 
 		}
 		if (!interactingtemp)
@@ -57,19 +60,24 @@ void Game::gameRun()
 			{
 				secretary.listAllObjectsInScene(currentScene);
 				current = "CurrentScene";
+				std::cin >> playerResponse;
+				std::cin.ignore();
 			}
 			else if (playerResponse == "1")
 			{
 				secretary.listAllObjectsInScene(playerInventory);
 				current = "PlayerInventory";
+				std::cin >> playerResponse;
+				std::cin.ignore();
+			}
+			else if (playerResponse == "Exit" || playerResponse2 == "Exit") {
+					break;
 			}
 			else
 			{
 				secretary.dummyAnswer();
 			}
 
-			std::cin >> playerResponse;
-			std::cin.ignore();
 
 			if (playerResponse == "Rock" || playerResponse == "Ball" && current == "CurrentScene")
 			{
