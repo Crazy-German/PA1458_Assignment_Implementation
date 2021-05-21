@@ -137,13 +137,13 @@ namespace my {
 				EXPECT_FALSE(test->checkisOn());
 			}
 
-			TEST_F(UnitTest, fake) {
+			TEST_F(UnitTest, testInteraction) {
 				test->setCurrentInteractionOptions("Touch");
 				test->startInteraction("Touch");
 				ASSERT_TRUE(test->isInteracting());
 			}
 
-			TEST_F(UnitTest, fake2) {
+			TEST_F(UnitTest, testAbort) {
 				test->setCurrentInteractionOptions("Touch");
 				test->startInteraction("Touch");
 				test->abbortCurrentInteraction();
